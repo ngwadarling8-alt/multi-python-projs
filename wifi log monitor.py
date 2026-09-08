@@ -186,3 +186,4 @@ except (OSError, PermissionError) as error:
     logger.error("Run with the required capture privileges and verify libpcap/Npcap is installed.")
 finally:
     csv_logger.close()
+

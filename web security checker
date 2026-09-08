@@ -1,0 +1,73 @@
+import sys
+
+import requests
+
+raw_url = input("Enter URL: ").strip()
+
+if not raw_url:
+    print("No URL entered.")
+    sys.exit(1)
+
+if "://" not in raw_url:
+    raw_url = "https://" + raw_url
+
+url = raw_url
+
+try:
+    session = requests.Session()
+    session.headers.update(
+        {
+            "User-Agent": "Mozilla/5.0 (Web-Security-Checker/1.0)",
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        }
+    )
+    response = session.get(url, timeout=10, allow_redirects=True)
+
+except requests.RequestException as error:
+    print("Request failed:", error)
+    sys.exit(1)
+
+score = 0
+redirected = bool(response.history) or response.url.rstrip("/") != url.rstrip("/")
+
+if redirected:
+    print("Redirect detected")
+else:
+    print("No redirect detected")
+
+headers = response.headers
+
+print("Final URL:", response.url)
+print("HTTP status:", response.status_code)
+print("\nSecurity headers:")
+
+for header_name in (
+    "x-frame-options",
+    "content-security-policy",
+    "strict-transport-security",
+    "x-content-type-options",
+):
+    print(f"{header_name}: {headers.get(header_name, 'Header not found')}")
+
+if url.startswith("https://"):
+    score += 30
+
+if redirected:
+    score += 30
+
+if headers.get("strict-transport-security"):
+    score += 10
+
+if headers.get("content-security-policy"):
+    score += 10
+
+if headers.get("x-frame-options"):
+    score += 10
+
+if headers.get("x-content-type-options"):
+    score += 10
+
+print("Score:", score)
+
+if response.status_code >= 400:
+   print("Warning: the site returned an HTTP error, but its headers were still inspected.")

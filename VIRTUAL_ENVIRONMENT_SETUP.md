@@ -1,3 +1,4 @@
+```
 # Python Virtual Environment Setup in VS Code
 
 ## Introduction
@@ -133,3 +134,4 @@ I selected the Python interpreter inside the venv folder.
 The venv indicator appeared at the bottom-right of VS Code.
 
 This confirmed that VS Code was using the virtual environment for the FIM2 project.
+```

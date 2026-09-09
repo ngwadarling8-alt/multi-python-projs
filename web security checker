@@ -1,4 +1,4 @@
-import sys
+import sys # This is a Web Security Checker, A python program which  analyzes the security headers and configuration of a website.
 
 import requests
 

@@ -1,4 +1,4 @@
-import hashlib
+import hashlib # file intergrity monitor (FIM) monitors if your file has been edited,deleted,or moved
 import json
 import os
 

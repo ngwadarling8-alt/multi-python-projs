@@ -1,4 +1,4 @@
-import os
+import os # Suspicious Login Activity Detector(SLAD), A Python program use to analyze logins to identify potential dangerous patterns like brute force attacks and more  
 from datetime import datetime, timedelta
 
 filename = input("Enter log file name: ")

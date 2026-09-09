@@ -1,4 +1,6 @@
-```
+
+
+
 # Python Virtual Environment Setup in VS Code
 
 ## Introduction
@@ -13,17 +15,17 @@ I opened Visual Studio Code and opened the terminal.
 
 The terminal initially showed:
 
-```
+```text
 (venv) C:\Users\ALL COMPUTERS>
-```
+````
 
 This showed that a virtual environment was already active, but it was not located inside my project folder.
 
 ## Step 2: Created the FIM2 Project Folder
 
-I created a project folder called FIM2 using:
+I created a project folder called `FIM2` using:
 
-```
+```text
 mkdir FIM2
 ```
 
@@ -31,13 +33,13 @@ mkdir FIM2
 
 I moved into the project folder using:
 
-```
+```text
 cd FIM2
 ```
 
 The terminal then showed:
 
-```
+```text
 PS C:\Users\ALL COMPUTERS\FIM2>
 ```
 
@@ -45,7 +47,7 @@ PS C:\Users\ALL COMPUTERS\FIM2>
 
 I used:
 
-```
+```text
 dir
 ```
 
@@ -55,19 +57,19 @@ The folder was empty, which meant that the virtual environment had not yet been 
 
 I created a new virtual environment inside the FIM2 folder using:
 
-```
+```text
 python -m venv venv
 ```
 
-This created a folder called venv.
+This created a folder called `venv`.
 
-The venv folder contains the files needed for the project's isolated Python environment.
+The `venv` folder contains the files needed for the project's isolated Python environment.
 
 ## Step 6: Encountered a PowerShell Error
 
 When I tried to activate the environment using:
 
-```
+```text
 .\venv\Scripts\Activate.ps1
 ```
 
@@ -83,19 +85,19 @@ I opened Command Prompt in the VS Code terminal.
 
 The terminal showed:
 
-```
+```text
 C:\Users\ALL COMPUTERS>
 ```
 
 I then entered the FIM2 project folder:
 
-```
+```text
 cd FIM2
 ```
 
 The terminal showed:
 
-```
+```text
 C:\Users\ALL COMPUTERS\FIM2>
 ```
 
@@ -103,35 +105,85 @@ C:\Users\ALL COMPUTERS\FIM2>
 
 I activated the virtual environment using:
 
-```
+```text
 venv\Scripts\activate
 ```
 
 The terminal then showed:
 
-```
+```text
 (venv) C:\Users\ALL COMPUTERS\FIM2>
 ```
 
-The (venv) at the beginning confirmed that the virtual environment was successfully activated.
+The `(venv)` at the beginning confirmed that the virtual environment was successfully activated.
 
 ## Step 9: Selected the Environment in VS Code
 
 I selected the Python interpreter in VS Code using:
 
-```
-Ctrl + Shift + P
-```
+**Ctrl + Shift + P**
 
 Then I selected:
 
-```
-Python: Select Interpreter
-```
+**Python: Select Interpreter**
 
-I selected the Python interpreter inside the venv folder.
+I selected the Python interpreter inside the `venv` folder.
 
-The venv indicator appeared at the bottom-right of VS Code.
+The `venv` indicator appeared at the bottom-right of VS Code.
 
 This confirmed that VS Code was using the virtual environment for the FIM2 project.
+
+## Final Project Structure
+
+The project now has this basic structure:
+
+```text
+FIM2/
+│
+├── venv/
+│
+└── Python project files
 ```
+
+## Useful Commands
+
+### Create a virtual environment
+
+```text
+python -m venv venv
+```
+
+### Activate in Command Prompt
+
+```text
+venv\Scripts\activate
+```
+
+### Activate in PowerShell
+
+```text
+.\venv\Scripts\Activate.ps1
+```
+
+### Check Python version
+
+```text
+python --version
+```
+
+### Deactivate the environment
+
+```text
+deactivate
+```
+
+## Conclusion
+
+I successfully created a Python virtual environment inside my `FIM2` project, activated it using Command Prompt, and selected it as the Python interpreter in VS Code.
+
+The final terminal confirmed the setup with:
+
+```text
+(venv) C:\Users\ALL COMPUTERS\FIM2>
+```
+
